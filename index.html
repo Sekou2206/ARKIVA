@@ -7,7 +7,6 @@
     <meta name="description" content="ARKIVA, entreprise ivoirienne spécialisée dans la numérisation de documents, la GED et la transformation digitale. Basée à Abidjan, Côte d'Ivoire.">
     <meta name="theme-color" content="#0A1A35">
 
-    <!-- Favicon inline SVG — évite le 404 sur GitHub Pages -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='2' width='2' height='28' fill='%232E7FD9'/><rect x='9' y='6' width='2' height='20' fill='%232E7FD9'/><rect x='14' y='10' width='3' height='16' fill='%230A1A35'/><rect x='20' y='4' width='2' height='22' fill='%232E7FD9'/><rect x='25' y='8' width='2' height='18' fill='%232E7FD9'/></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,7 +147,6 @@
         }
         .nav--scrolled .nav__link { color: var(--navy); }
         .nav--scrolled .nav__link:hover { color: var(--azure); }
-        .nav--scrolled .nav__logo { color: var(--navy); }
         .nav--scrolled .nav__cta { background: var(--azure); color: var(--white); border-color: var(--azure); }
         .nav--scrolled .nav__hamburger span { background: var(--navy); }
 
@@ -163,25 +161,17 @@
         }
 
         .nav__logo {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.06em;
-            transition: color 300ms var(--ease);
             display: flex;
             align-items: center;
-            gap: 10px;
+            transition: opacity 200ms var(--ease);
         }
-        .nav__logo:hover { color: var(--white); }
+        .nav__logo:hover { opacity: 0.85; }
 
-        .nav__logo-motif {
-            display: flex;
-            gap: 2px;
-            align-items: flex-end;
-            height: 20px;
+        .nav__logo-img {
+            height: 36px;
+            width: auto;
+            display: block;
         }
-        .nav__logo-motif span { display: block; width: 2px; background: var(--azure); border-radius: 1px; }
 
         .nav__links {
             display: none;
@@ -200,6 +190,8 @@
             cursor: pointer;
         }
         .nav__link:hover { color: var(--white); }
+        .nav--scrolled .nav__link { color: var(--navy); }
+        .nav--scrolled .nav__link:hover { color: var(--azure); }
 
         .nav__cta {
             display: none;
@@ -275,11 +267,22 @@
             padding-top: var(--nav-height);
         }
 
+        .hero__grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+            padding: 80px 0;
+        }
+        @media (min-width: 960px) {
+            .hero__grid { grid-template-columns: 5fr 7fr; gap: 64px; }
+        }
+
         .hero__content {
             position: relative;
             z-index: 2;
-            max-width: 720px;
-            padding: 80px 0;
         }
 
         .hero__eyebrow {
@@ -342,6 +345,18 @@
         .hero__cta svg { width: 16px; height: 16px; transition: transform 200ms var(--ease); }
         .hero__cta:hover svg { transform: translateX(3px); }
 
+        .hero__image {
+            position: relative;
+            z-index: 2;
+        }
+        .hero__image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: cover;
+            border: 1px solid var(--border-dark);
+        }
+
         .hero__scroll-hint {
             position: absolute;
             bottom: 40px;
@@ -394,6 +409,23 @@
         .about__value-icon svg { width: 20px; height: 20px; }
         .about__value-title { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
         .about__value-desc { font-size: 13px; color: var(--slate); line-height: 1.55; }
+
+        .about__images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 64px;
+        }
+        .about__img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        @media (min-width: 768px) {
+            .about__img { height: 340px; }
+        }
 
         .services__list { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 56px; }
         @media (min-width: 768px) { .services__list { grid-template-columns: 1fr 1fr; } }
@@ -549,7 +581,8 @@
         .footer { background: var(--navy); padding: 64px 0 32px; color: rgba(255,255,255,0.4); }
         .footer__grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 48px; }
         @media (min-width: 768px) { .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-        .footer__brand-desc { font-size: 13px; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+        .footer__brand-logo { height: 36px; width: auto; margin-bottom: 16px; }
+        .footer__brand-desc { font-size: 13px; line-height: 1.7; max-width: 280px; }
         .footer__heading {
             font-family: var(--font-display); font-size: 12px; font-weight: 600;
             letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 20px;
@@ -595,7 +628,7 @@
 
         @media (max-width: 767px) {
             .section { padding: 64px 0; }
-            .hero__content { padding: 48px 0 80px; }
+            .hero__grid { padding: 48px 0 64px; }
             .hero__scroll-hint { display: none; }
             .impact__stats { gap: 32px; }
         }
@@ -610,14 +643,7 @@
     <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
         <div class="nav__inner">
             <a href="#" class="nav__logo" aria-label="ARKIVA — Accueil">
-                <span class="nav__logo-motif">
-                    <span style="height:12px"></span>
-                    <span style="height:18px"></span>
-                    <span style="height:8px"></span>
-                    <span style="height:14px"></span>
-                    <span style="height:20px"></span>
-                </span>
-                ARKIVA
+                <img src="logoarkiva.JPG" alt="ARKIVA" class="nav__logo-img">
             </a>
             <ul class="nav__links">
                 <li><a href="#about" class="nav__link">À propos</a></li>
@@ -647,14 +673,19 @@
         <section class="hero" id="hero">
             <div class="lines-motif lines-motif--hero" id="heroLines"></div>
             <div class="container">
-                <div class="hero__content">
-                    <span class="hero__eyebrow">Gestion Électronique des Documents</span>
-                    <h1 class="hero__title">La transformation documentaire commence ici</h1>
-                    <p class="hero__subtitle">Numérisation, GED et archivage numérique sécurisé — ARKIVA accompagne les organisations ivoiriennes de l'audit à la livraison.</p>
-                    <a href="#contact" class="hero__cta">
-                        Demander un audit gratuit
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                <div class="hero__grid">
+                    <div class="hero__content">
+                        <span class="hero__eyebrow">Gestion Électronique des Documents</span>
+                        <h1 class="hero__title">La transformation documentaire commence ici</h1>
+                        <p class="hero__subtitle">Numérisation, GED et archivage numérique sécurisé — ARKIVA accompagne les organisations ivoiriennes de l'audit à la livraison.</p>
+                        <a href="#contact" class="hero__cta">
+                            Demander un audit gratuit
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero__image reveal">
+                        <img src="heroimage1.JPG" alt="ARKIVA — Solutions de numérisation et GED">
+                    </div>
                 </div>
             </div>
             <div class="hero__scroll-hint">
@@ -691,6 +722,10 @@
                             <div><div class="about__value-title">Accompagnement personnalisé</div><div class="about__value-desc">Un interlocuteur dédié, de l'audit initial jusqu'à la livraison finale.</div></div>
                         </div>
                     </div>
+                </div>
+                <div class="about__images reveal">
+                    <img src="arkiva1.JPG" alt="ARKIVA — Numérisation de documents" class="about__img">
+                    <img src="arkiva2.JPG" alt="ARKIVA — Gestion électronique des documents" class="about__img">
                 </div>
             </div>
         </section>
@@ -831,10 +866,7 @@
         <div class="container">
             <div class="footer__grid">
                 <div>
-                    <a href="#" class="nav__logo" style="color:var(--white);margin-bottom:8px">
-                        <span class="nav__logo-motif"><span style="height:12px"></span><span style="height:18px"></span><span style="height:8px"></span><span style="height:14px"></span><span style="height:20px"></span></span>
-                        ARKIVA
-                    </a>
+                    <img src="logoarkiva.JPG" alt="ARKIVA" class="footer__brand-logo">
                     <p class="footer__brand-desc">Entreprise ivoirienne spécialisée dans la numérisation de documents, la GED et la transformation digitale des organisations.</p>
                 </div>
                 <div><div class="footer__heading">Navigation</div><ul class="footer__links"><li><a href="#about">À propos</a></li><li><a href="#services">Services</a></li><li><a href="#method">Méthode</a></li><li><a href="#why">Pourquoi nous</a></li></ul></div>
@@ -851,7 +883,6 @@
     (function() {
         'use strict';
 
-        /* ── LINES MOTIF ── */
         function generateLines(containerId, options) {
             var container = document.getElementById(containerId);
             if (!container) return;
@@ -903,7 +934,6 @@
             }
         }
 
-        /* ── NAV ── */
         var nav = document.getElementById('nav');
         var hamburger = document.getElementById('hamburger');
         var mobileMenu = document.getElementById('mobileMenu');
@@ -939,7 +969,6 @@
             });
         });
 
-        /* ── REVEAL ON SCROLL ── */
         var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReduced) {
             document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
@@ -952,7 +981,6 @@
             document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
         }
 
-        /* ── COUNTER ANIMATION ── */
         var countersDone = false;
         function animateCounters() {
             if (countersDone) return;
@@ -978,7 +1006,6 @@
             cObs.observe(impactEl);
         }
 
-        /* ── TIMELINE ── */
         var steps = document.querySelectorAll('.timeline__step');
         var curStep = 0;
         function advanceStep() {
@@ -1005,7 +1032,6 @@
             tObs.observe(document.getElementById('timeline'));
         }
 
-        /* ── FORM ── */
         var form = document.getElementById('contactForm');
         var toast = document.getElementById('toast');
         if (form) {
@@ -1030,7 +1056,6 @@
             });
         }
 
-        /* ── ACTIVE NAV ── */
         var navLinks = document.querySelectorAll('.nav__link');
         var sObs = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
