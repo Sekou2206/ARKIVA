@@ -7,7 +7,21 @@
     <meta name="description" content="ARKIVA, entreprise ivoirienne spécialisée dans la numérisation de documents, la GED et la transformation digitale. Basée à Abidjan, Côte d'Ivoire.">
     <meta name="theme-color" content="#0A1A35">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='4' y='2' width='2' height='28' fill='%232E7FD9'/><rect x='9' y='6' width='2' height='20' fill='%232E7FD9'/><rect x='14' y='10' width='3' height='16' fill='%230A1A35'/><rect x='20' y='4' width='2' height='22' fill='%232E7FD9'/><rect x='25' y='8' width='2' height='18' fill='%232E7FD9'/></svg>">
+    <!-- Favicon = logo ARKIVA -->
+    <link rel="icon" href="logoarkiva.JPG" type="image/jpeg">
+    <link rel="apple-touch-icon" href="logoarkiva.JPG">
+
+    <!-- Open Graph — aperçu sur les réseaux sociaux -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ARKIVA — Numérisation & GED | Abidjan">
+    <meta property="og:description" content="Numérisation, GED et archivage numérique sécurisé — ARKIVA accompagne les organisations ivoiriennes de l'audit à la livraison.">
+    <meta property="og:image" content="logoarkiva.JPG">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ARKIVA — Numérisation & GED | Abidjan">
+    <meta name="twitter:description" content="Numérisation, GED et archivage numérique sécurisé — ARKIVA accompagne les organisations ivoiriennes.">
+    <meta name="twitter:image" content="logoarkiva.JPG">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -352,9 +366,10 @@
         .hero__image img {
             width: 100%;
             height: auto;
+            max-height: 520px;
             border-radius: var(--radius);
-            object-fit: cover;
-            border: 1px solid var(--border-dark);
+            object-fit: contain;
+            object-position: center;
         }
 
         .hero__scroll-hint {
@@ -418,13 +433,12 @@
         }
         .about__img {
             width: 100%;
-            height: 280px;
-            object-fit: cover;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            object-position: center;
             border-radius: var(--radius);
             border: 1px solid var(--border);
-        }
-        @media (min-width: 768px) {
-            .about__img { height: 340px; }
         }
 
         .services__list { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 56px; }
@@ -839,7 +853,7 @@
                     <div class="reveal">
                         <div class="contact__info-item"><div class="contact__info-label">Adresse</div><div class="contact__info-value">Abidjan, Côte d'Ivoire<br>Zone 4, Rue des Jardins</div></div>
                         <div class="contact__info-item"><div class="contact__info-label">Téléphone</div><div class="contact__info-value"><a href="tel:+2250700000000">+225 07 00 00 00 00</a></div></div>
-                        <div class="contact__info-item"><div class="contact__info-label">Email</div><div class="contact__info-value"><a href="mailto:contact@arkiva.ci">contact@arkiva.ci</a></div></div>
+                        <div class="contact__info-item"><div class="contact__info-label">Email</div><div class="contact__info-value"><a href="mailto:contact@arkivadigital.com">contact@arkivadigital.com</a></div></div>
                         <div class="contact__socials">
                             <a href="#" class="contact__social" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
                             <a href="#" class="contact__social" aria-label="Twitter / X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733-16z"/><path d="M4 20l6.768-6.768m2.46-2.46L20 4"/></svg></a>
@@ -847,7 +861,7 @@
                         </div>
                     </div>
                     <div class="reveal reveal-delay-2">
-                        <form id="contactForm" novalidate>
+                        <form id="contactForm" action="https://formspree.io/f/mwvggejg" method="POST" novalidate>
                             <div class="form__row">
                                 <div class="form__group"><label for="name" class="form__label">Nom complet *</label><input type="text" id="name" name="name" class="form__input" placeholder="Votre nom" required><div class="form__error">Ce champ est requis.</div></div>
                                 <div class="form__group"><label for="email" class="form__label">Email *</label><input type="email" id="email" name="email" class="form__input" placeholder="vous@entreprise.ci" required><div class="form__error">Veuillez entrer un email valide.</div></div>
@@ -871,7 +885,7 @@
                 </div>
                 <div><div class="footer__heading">Navigation</div><ul class="footer__links"><li><a href="#about">À propos</a></li><li><a href="#services">Services</a></li><li><a href="#method">Méthode</a></li><li><a href="#why">Pourquoi nous</a></li></ul></div>
                 <div><div class="footer__heading">Services</div><ul class="footer__links"><li><a href="#services">Numérisation</a></li><li><a href="#services">GED</a></li><li><a href="#services">Archivage sécurisé</a></li><li><a href="#services">Conseil</a></li></ul></div>
-                <div><div class="footer__heading">Contact</div><ul class="footer__links"><li>Abidjan, Côte d'Ivoire</li><li><a href="tel:+2250700000000">+225 07 00 00 00 00</a></li><li><a href="mailto:contact@arkiva.ci">contact@arkiva.ci</a></li></ul></div>
+                <div><div class="footer__heading">Contact</div><ul class="footer__links"><li>Abidjan, Côte d'Ivoire</li><li><a href="tel:+2250700000000">+225 07 00 00 00 00</a></li><li><a href="mailto:contact@arkivadigital.com">contact@arkivadigital.com</a></li></ul></div>
             </div>
             <div class="footer__bottom"><span>&copy; 2025 ARKIVA. Tous droits réservés.</span><span>Conçu à Abidjan avec soin.</span></div>
         </div>
@@ -1032,6 +1046,7 @@
             tObs.observe(document.getElementById('timeline'));
         }
 
+        /* ── FORM — Formspree via fetch ── */
         var form = document.getElementById('contactForm');
         var toast = document.getElementById('toast');
         if (form) {
@@ -1046,9 +1061,22 @@
                 if (!emailEl.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) { emailEl.closest('.form__group').classList.add('error'); valid = false; }
                 if (!msgEl.value.trim()) { msgEl.closest('.form__group').classList.add('error'); valid = false; }
                 if (valid) {
-                    toast.classList.add('show');
-                    setTimeout(function() { toast.classList.remove('show'); }, 4000);
-                    form.reset();
+                    var formData = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    }).then(function(response) {
+                        if (response.ok) {
+                            toast.classList.add('show');
+                            setTimeout(function() { toast.classList.remove('show'); }, 4000);
+                            form.reset();
+                        } else {
+                            alert('Une erreur est survenue. Veuillez réessayer.');
+                        }
+                    }).catch(function() {
+                        alert('Erreur réseau. Veuillez vérifier votre connexion.');
+                    });
                 }
             });
             form.querySelectorAll('.form__input, .form__textarea').forEach(function(inp) {
